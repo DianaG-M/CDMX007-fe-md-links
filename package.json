@@ -6,9 +6,20 @@
   "directories": {
     "test": "test"
   },
+  "bin": {
+    "md": "./cli.js"
+  },
   "scripts": {
-    "md-links": "node index.js",
-    "test": "test"
+    "htmlhint": "htmlhint src/*.html test/*.html",
+    "eslint": "eslint --ext .js src/ test/",
+    "test": "jest --coverage",
+    "md-links": "node index.js"
+  },
+  "dependencies": {
+    "eslint": "^5.9.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "htmlhint": "^0.10.1",
+    "jest": "^23.6.0"
   },
   "repository": {
     "type": "git",
