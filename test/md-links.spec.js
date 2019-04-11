@@ -7,8 +7,4 @@ describe('findLink', () => {
   it('Should are a function', () => {
     console.log ('function')
   });
-
-  it ('Should return links for .md' , () => {
-    expect(findLink).toEqual(arrL)
-  })
 })
