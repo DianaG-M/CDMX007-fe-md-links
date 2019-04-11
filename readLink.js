@@ -1,9 +1,13 @@
 const fileSystem = require ('fs');
 const path = require ('path');
-const linkForMD = require('./md-links');
+const linkForGetLink = require('./getLink');
+const pathA = path.resolve(process.argv[2]); 
+require ('colors');
+const options = process.argv[3];
 
 const findLink = () => {
-    fileSystem.readdir('./', (err, data) => {
+    fileSystem.readdir(pathA, (err, data) => {
+        console.log(`${'ruta'}${pathA}`.yellow);
         if(err){
             console.log(err);
         } else {
@@ -12,8 +16,10 @@ const findLink = () => {
                     fileSystem.readFile(element, 'utf-8', (err, data) => {
                         if(err){
                             console.log(err);
-                        }else {
-                            linkForMD.mdLinks(data);
+                        }else if (options == '--validate'){
+                            linkForGetLink.getLink(data);
+                        }else if (options == '--stats'){
+                            linkForGetLink.stats(data);
                         }
                     })
                 }
