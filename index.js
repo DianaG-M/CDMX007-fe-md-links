@@ -1,3 +1,3 @@
-module.exports = () => {
-  // ...
-};
+const findLink = require ('./readLink.js')
+
+findLink();
